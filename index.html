@@ -4,424 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Portfólio - Programação e Automação</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Spectral+SC&display=swap" rel="stylesheet">
 
-    <!-- FontAwesome (para o ícone do WhatsApp) -->
+    <title>Ckistian Programando Soluções</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
-    <!-- Font para a logo -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=VT323&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+</head>
 
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
         body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #1a1a2e;
-            color: #ffffff;
-            line-height: 1.6;
-            overflow-x: hidden;
+            background-color: #1C1C1E;
         }
 
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: #0a0a14;
-            z-index: 1000;
-            display: flex; /* Adiciona flexbox para alinhar os itens */
-            justify-content: space-between; /* Espaça logo e menu */
-            align-items: center; /* Alinha os itens verticalmente */
-            padding: 10px 20px; /* Adiciona espaçamento horizontal */
-            
+        .zoom-effect {
+        transition: transform 0.3s ease-in-out;
+        }
+        .zoom-effect:hover {
+            transform: scale(1.03);
         }
 
-        nav .logo-text {
-            font-family: "VT323", serif;
-            display: flex; /* Usa flexbox para alinhar logo e texto */
-            align-items: center;
-            white-space: nowrap;
-        }
-
-        nav ul {
-            display: flex;
-            list-style-type: none;
-            margin: 0; /* Remove o margem de lista */
-            padding: 0;
-        }
-
-        nav ul li {
-            margin: 0 20px;
-        }
-
-        nav ul li a {
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 1em;
-            transition: color 0.3s ease, transform 0.3s ease;
-        }
-
-        nav ul li a:hover {
-            color: #9c9c9c;
-            transform: scale(1.1);
-        }
-
-        nav .logo-text img {
-            width: 40px;  /* Tamanho da imagem ajustado */
-            height: auto;
-            margin-right: 10px; /* Ajuste o espaçamento entre o logo e o texto */
-        }
-
-        .logo-text {
-            font-family: "Lobster", serif;
-            color: white;
+        .navbar-brand {
             font-size: 2rem;
         }
 
-        .hamburger-menu {
-            display: none;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 25px;
-            height: 18px;
-            cursor: pointer;
+        .navbar-brand span {
+            font-size: 3rem;
         }
 
-        .hamburger-menu div {
-            background-color: white;
-            height: 3px;
-            border-radius: 3px;
-        }
-
-        /* Menu oculto */
-        nav ul {
-            display: flex;
-            flex-direction: row;
-            list-style: none;
-            margin-left: auto;
-        }
-
-        /* Estilos para o menu hambúrguer (quando estiver visível) */
-        nav ul.active {
-            display: flex;
-            flex-direction: column;
-            position: absolute;
-            top: 55px;
-            right: 20px;
-            background-color: #0a0a14;
-            padding: 10px;
-            border-radius: 10px;
-            align-items: center;
-            width: 250px;
-            height: auto;
-            max-height: 400px;
-        }
-
-        /* Estilos para os itens de navegação dentro do menu */
-        nav ul.active li {
-            padding: 10px;
-            color: white;
-            width: 100%;
-            text-align: center;
-            border-bottom: 1px solid white;
-        }
-
-        /* Remove a linha de borda do último item */
-        nav ul.active li:last-child {
-            border-bottom: none;
-        }
-
-        /* Responsividade */
-        @media (max-width: 768px) {
-            nav ul {
-                display: none;
-                width: 100%;
-                justify-content: center;
-                margin: 0;
-            }
-
-            .logo-text {
-            font-size: 1rem;
-        }
-
-            nav ul li {
-                margin: 0.5rem 0;
-            }
-
-            .hamburger-menu {
-                display: flex;
-            }
-        }
-
-        /* Estilo do contêiner com a imagem de fundo */
-        header {
-            background-image: url('https://blog.ebaconline.com.br/blog/wp-content/uploads/2022/12/ffapu6nxbihe77kajjmeh-e1674740233107.png');
-            text-align: center;
-            padding: 300px 20px;
-            background-color: #0a0a14;
-            position: relative;
-            overflow: hidden; /* Garante que o pseudo-elemento fique dentro do contêiner */
-            height: 100vh; /* Definindo altura total da tela para garantir que o header ocupe o espaço */
-        }
-
-        /* Pseudo-elemento para a imagem com blur */
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: inherit; /* Herda a imagem de fundo do contêiner */
-            filter: blur(10px); /* Aplica o desfoque à imagem */
-            z-index: -1; /* Coloca a imagem borrada atrás do conteúdo */
-            background-size: cover; /* Garante que a imagem cubra todo o header */
-            background-position: center; /* Centraliza a imagem */
-        }
-
-        /* Estilo para o texto */
-        header h1 {
-            font-size: 4em;
-            color: #ffffff;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            font-weight: bold;
-            text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.9);
-        }
-
-        header p {
-            font-size: 1.8em;
-            color: #ffffff;
-            font-weight: bold;
-            text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.9);
-        }
-
-
-        section {
-            padding: 100px 20px;
-            text-align: center;
-        }
-
-        h2 {
-            font-size: 3em;
-            color: #ffffff;
-            margin-bottom: 40px;
-            text-transform: uppercase;
-        }
-
-        .service, .portfolio-item, .contact-info, .testimonial {
-            margin: 30px;
-            padding: 30px;
-            background-color: #0a0a14;
-            border-radius: 10px;
-            transition: transform 0.4s ease, background-color 0.3s ease;
-        }
-
-        .service:hover, .portfolio-item:hover, .contact-info:hover, .testimonial:hover {
-            transform: scale(1.05);
-            background-color: #000017;
-        }
-
-        .service h3, .portfolio-item h3 {
-            font-size: 2.5em;
-            color: #ffffff;
-            margin-bottom: 10px;
-        }
-
-        .service p, .portfolio-item p, .contact-info p, .testimonial p {
-            font-size: 1.4em;
-            color: #ccc;
-        }
-
-        .portfolio {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 30px;
-            transition: all 0.3s ease;
-        }
-
-        .portfolio-item {
-            width: 320px;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        .portfolio-item img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-        }
-
-        .portfolio-item:hover {
-            transform: scale(1.1);
-        }
-
-        .testimonial {
-            background-color: #0a0a14;
-            color: #0a0a14;
-            font-style: italic;
-            margin: 50px 0;
-        }
-
-        .contact-info {
-            background-color: #0a0a14;
-            color: #0a0a14;
-        }
-
-        .contact-info h3 {
-            color: #0a0a14;
-        }
-
-        footer {
-            background-color: #0a0a14;
-            text-align: center;
-            padding: 20px;
-        }
-
-        footer p {
-            color: #bbb;
-        }
-
-        .carousel-container {
-            width: 100%;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .carousel {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-
-        .carousel-item {
-            width: 100%;
-            flex-shrink: 0;
-            text-align: center;
-        }
-
-        .carousel-item img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-
-        .carousel-button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.5);
-            color: #fff;
-            padding: 15px;
-            border: none;
-            font-size: 2em;
-            cursor: pointer;
-        }
-
-        .carousel-button-prev {
-            left: 10px;
-        }
-
-        .carousel-button-next {
-            right: 10px;
-        }
-
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 40px;
-        }
-
-        .social-icons a {
-            color: #ffffff;
-            font-size: 2em;
-            transition: color 0.3s ease;
-        }
-
-        .social-icons a:hover {
-            color: #ffffff;
-        }
-
-        form {
-            background-color: #0a0a14;
-            padding: 40px;
-            border-radius: 10px;
-        }
-
-        form input, form textarea {
-            width: 100%;
-            padding: 15px;
-            margin-bottom: 20px;
-            border-radius: 10px;
-            border: 2px solid #ccc;
-            font-size: 1.2em;
-        }
-
-        form button {
-            background-color: #ffffff;
-            color: #fff;
-            padding: 15px 30px;
-            font-size: 1.5em;
-            border: none;
-            cursor: pointer;
-            border-radius: 10px;
-        }
-
-        form button:hover {
-            background-color: #ffffff;
-        }
-
-        /* Responsividade */
-        @media (max-width: 768px) {
-            .portfolio {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .portfolio-item {
-                width: 80%;
-            }
-
-            .carousel-item img {
-                width: 90%;
-            }
-        }
-
-        /* Botão WhatsApp flutuante */
-        .whatsapp-btn {
-            position: fixed;
-            bottom: 20px; /* Ajuste a distância do fundo aqui */
-            right: 20px;
-            background-color: #25D366;
-            border-radius: 50%;
-            padding: 20px; /* Tamanho maior do botão */
-            font-size: 2.5rem;
-            color: white;
-            text-align: center;
-            cursor: pointer;
-            z-index: 100;
-            transition: background-color 0.3s ease;
-            width: 60px; /* Ajuste o tamanho para garantir um formato circular perfeito */
-            height: 60px; /* Ajuste o tamanho para garantir um formato circular perfeito */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-decoration: none; /* Remover sublinhado do link */
-        }
-
-        /* Ajuste para o ícone dentro do botão */
-        .whatsapp-btn i {
-            font-size: 2.5rem; /* Tamanho do ícone */
+        .navbar-brand img {
+            height: 4rem;
+            width: auto;
         }
 
         /* Efeito de hover */
@@ -429,169 +47,218 @@
             background-color: #128C7E;
         }
 
-        /* Animação de rolagem suave */
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 0;
+        @media (max-width: 768px) {
+
+            .navbar-brand {
+            font-size: 1rem;
         }
+
+        .navbar-brand span {
+            font-size: 2rem;
+        }
+
+        .navbar-brand img {
+            height: 3rem;
+            width: auto;
+        }
+
+        }
+
     </style>
-</head>
-<body class="dark-mode">
 
 <!-- Botão WhatsApp -->
-<a href="https://wa.me/554591068514?text=Olá!%20Tenho%20interesse%20em%20seu%20trabalho." target="_blank" class="whatsapp-btn">
-    <i class="fab fa-whatsapp"></i> <!-- Ícone do WhatsApp -->
+<a href="https://wa.me/554591068514?text=Olá!%20Tenho%20interesse%20no%20seu%20trabalho." target="_blank" class="whatsapp-btn" style="position: fixed; bottom: 20px; right: 20px; background-color: #25D366; border-radius: 50%;padding: 20px;font-size: 2.5rem;color: white;text-align: center;cursor: pointer;z-index: 100;transition: background-color 0.3s ease;width: 60px;height: 60px;display: flex;justify-content: center;align-items: center;text-decoration: none;">
+    <i class="fab fa-whatsapp"></i>
 </a>
 
-
 <!-- Navegação -->
-<nav>
-    <div class="logo-text">
-        <img src="https://images.vexels.com/content/142890/preview/high-tech-rings-logo-4bfb8f.png" alt="Logo" width="40">
-        <span>Ckistian Programando Soluções</span>
+<nav class="navbar navbar-expand-lg navbar-custom" style="background-color: #1a1919; position: fixed; top: 0; left: 0; width: 100%; z-index: 1050;">
+    <div class="container-fluid">
+        <a class="navbar-brand text-light" href="#" style="font-family: 'Bebas Neue', serif;">
+            <img src="https://i.ibb.co/wQLzqrm/Logo-EMpresa-removebg-preview.png" alt="Logo" class="d-inline-block align-text-center" style="margin-top: -10px;">
+            <span style="margin-right: 2px; color: #43c2f0;">CKISTIAN</span> Programando Soluções
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-end">
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="#inicio">Início</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="#servicos">Serviços</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="#sobre">Portfólio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="#sobre">Sobre Mim</a>
+                </li>
+            </ul>
+        </div>
     </div>
-    <div class="hamburger-menu" onclick="toggleMenu()">
-        <div></div>
-        <div></div>
-        <div></div>
-    </div>
-    <ul>
-        <li><a href="#Início">Início</a></li>
-        <li><a href="#sobre">Sobre</a></li>
-        <li><a href="#servicos">Serviços</a></li>
-        <li><a href="#portfolio">Portfólio</a></li>
-        <li><a href="#contato">Contato</a></li>
-    </ul>
 </nav>
 
-<!-- Header -->
-<header id="Início" class="header">
-    <h1>Site em desenvolvimento!</h1>
-    <p>Transforme seu trabalho com automação inteligente e sites personalizados.</p>
-</header>
+<!-- Início -->
+ <section id="inicio">
 
-<!-- Sobre -->
-<section id="sobre">
-    <h2>Sobre</h2>
-    <div class="service">
-        <h3>Programação e Automação</h3>
-        <p>Automatizo tarefas repetitivas e crio soluções personalizadas para aumentar sua produtividade.</p>
+    
+    <div class="position-relative">
+        <img src="https://images.alphacoders.com/104/1046781.jpg" class="img-fluid w-100 vh-100 object-fit-cover"   alt="Imagem de fundo borrada">
     </div>
-</section>
+
+    <div class="position-absolute top-50 start-50 translate-middle text-center text-white container">
+        <img src="https://i.ibb.co/wQLzqrm/Logo-EMpresa-removebg-preview.png" alt="Logo" class="img-fluid mb-2" style="filter: drop-shadow(0px 0px 8px rgba(0, 0, 0, 1))">
+        <h1 class="fs-3 fw-light col-lg-8 mx-auto text-shadow" style="font-family: 'Bebas Neue', serif; text-shadow: 0px 0px 8px rgba(0, 0, 0, 1);">Do planejamento à execução estratégica, oferecemos soluções inteligentes e personalizadas para conectar sua empresa ao futuro da tecnologia.</h1>
+    </div>    
+ </section>
+
 
 <!-- Serviços -->
-<section id="servicos">
-    <h2>Serviços</h2>
-    <div class="service">
-        <h3>Robôs para WhatsApp e Facebook</h3>
-        <p>Desenvolvo bots para automatizar interações em plataformas populares.</p>
-    </div>
-    <div class="service">
-        <h3>Criação de Sites</h3>
-        <p>Crio sites modernos e responsivos para você impressionar seus clientes.</p>
-    </div>
-    <div class="service">
-        <h3>Dashboards Interativos</h3>
-        <p>Criação de painéis de controle para visualização de dados e insights dinâmicos.</p>
-    </div>
-</section>
-
-<!-- Portfólio -->
-<section id="portfolio">
-    <h2>Portfólio</h2>
-    <div class="portfolio">
-        <div class="portfolio-item">
-            <img src="project1.jpg" alt="Projeto 1">
-            <h3>Projeto 1</h3>
-        </div>
-        <div class="portfolio-item">
-            <img src="project2.jpg" alt="Projeto 2">
-            <h3>Projeto 2</h3>
-        </div>
-        <div class="portfolio-item">
-            <img src="project3.jpg" alt="Projeto 3">
-            <h3>Projeto 3</h3>
-        </div>
-    </div>
-</section>
-
-<!-- Testemunhos -->
-<section id="testemunhos">
-    <h2>O que dizem sobre mim</h2>
-    <div class="testimonial">
-        <p>"O trabalho de automação foi essencial para otimizar nosso processo e economizar tempo!" - Cliente A</p>
-    </div>
-</section>
-
-<!-- Contato -->
-<section id="contato">
-    <h2>Contato</h2>
-    <div class="contact-info">
-        <h3>Entre em contato comigo!</h3>
-        <form action="mailto:example@example.com" method="post" enctype="text/plain">
-            <input type="text" name="nome" placeholder="Seu nome" required>
-            <input type="email" name="email" placeholder="Seu e-mail" required>
-            <textarea name="mensagem" placeholder="Sua mensagem" rows="5" required></textarea>
-            <button type="submit">Enviar Mensagem</button>
-        </form>
-    </div>
-</section>
-
-<!-- Carousel -->
-<section id="carousel">
-    <h2>Carrossel de Imagens</h2>
-    <div class="carousel-container">
-        <div class="carousel">
-            <div class="carousel-item">
-                <img src="carousel1.jpg" alt="Imagem 1">
-            </div>
-            <div class="carousel-item">
-                <img src="carousel2.jpg" alt="Imagem 2">
-            </div>
-            <div class="carousel-item">
-                <img src="carousel3.jpg" alt="Imagem 3">
+<section id="servicos" class="container my-5" target="_blank">
+    <h2 class="text-center mb-4" style="color: #43c2f0; font-family: 'Bebas Neue', serif; font-size: 3rem;">
+        SERVIÇOS
+    </h2>
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-lg border-0 zoom-effect">
+                <div class="overflow-hidden">
+                    <img src="https://easydesign.com.br/wp-content/uploads/2022/01/desenvolvimento-de-sites-personalizados-1.jpg" 
+                         class="card-img-top img-fluid" 
+                         style="height: 200px; object-fit: cover;" 
+                         alt="Serviço 1">
+                </div>
+                <div class="card-body text-center">
+                    <h5 class="card-title fw-bold">Criação de Websites</h5>
+                    <p class="card-text">Transformamos ideias em websites modernos, funcionais e responsivos, desenvolvidos para atender às necessidades do seu negócio.</p>
+                </div>
             </div>
         </div>
-        <button class="carousel-button carousel-button-prev" onclick="prevSlide()">❮</button>
-        <button class="carousel-button carousel-button-next" onclick="nextSlide()">❯</button>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-lg border-0 zoom-effect">
+                <div class="overflow-hidden">
+                    <img src="https://universodenegocios.com.br/wp-content/uploads/2023/04/tendencias-de-marketing-digital-em-2023-4.jpg" 
+                         class="card-img-top img-fluid" 
+                         style="height: 200px; object-fit: cover;" 
+                         alt="Serviço 3">
+                </div>
+                <div class="card-body text-center">
+                    <h5 class="card-title fw-bold">Marketing Digital e Tráfego Pago</h5>
+                    <p class="card-text">Impulsione seus resultados com estratégias de tráfego pago direcionadas, maximizando sua visibilidade e atraindo o público certo para o seu negócio.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-lg border-0 zoom-effect">
+                <div class="overflow-hidden">
+                    <img src="https://i.ytimg.com/vi/2-wmj-2qFnQ/maxresdefault.jpg" 
+                         class="card-img-top img-fluid" 
+                         style="height: 200px; object-fit: cover;" 
+                         alt="Serviço 2">
+                </div>
+                <div class="card-body text-center">
+                    <h5 class="card-title fw-bold">Criação de Bots para Automação</h5>
+                    <p class="card-text">Automatize processos e aumente sua eficiência com bots personalizados para redes sociais, atendimento ao cliente, captura de dados e muito mais!</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-lg border-0 zoom-effect">
+                <div class="overflow-hidden">
+                    <img src="https://blog.connectplug.com.br/wp-content/uploads/2022/11/PDVDelivery_-1.webp" 
+                         class="card-img-top img-fluid" 
+                         style="height: 200px; object-fit: cover;" 
+                         alt="Serviço 3">
+                </div>
+                <div class="card-body text-center">
+                    <h5 class="card-title fw-bold">Criação de Sistemas</h5>
+                    <p class="card-text">Desenvolvimento de sistemas robustos e adaptáveis que garantem maior controle, automação e integração nos processos internos do seu negócio.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-lg border-0 zoom-effect">
+                <div class="overflow-hidden">
+                    <img src="https://sfbplanilhas.com/wp-content/uploads/2024/03/DREGRAFPBI.png" 
+                         class="card-img-top img-fluid" 
+                         style="height: 200px; object-fit: cover;" 
+                         alt="Serviço 3">
+                </div>
+                <div class="card-body text-center">
+                    <h5 class="card-title fw-bold">Análise de Dados para Decisões Estratégicas</h5>
+                    <p class="card-text">Transforme dados brutos em insights valiosos para o seu negócio com Power BI. Criamos dashboards interativos e relatórios personalizados, oferecendo uma visão clara e estratégica para decisões mais assertivas e eficientes.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-lg border-0 zoom-effect">
+                <div class="overflow-hidden">
+                    <img src="https://www.valuehost.com.br/blog/wp-content/uploads/2021/03/post_thumbnail-055c6295af8a637c496046f53ca8d0aa.jpeg" 
+                         class="card-img-top img-fluid" 
+                         style="height: 200px; object-fit: cover;" 
+                         alt="Serviço 3">
+                </div>
+                <div class="card-body text-center">
+                    <h5 class="card-title fw-bold">Criação e Configuração de Servidores</h5>
+                    <p class="card-text">Desenvolvemos servidores sob medida para atender às necessidades específicas do seu negócio, proporcionando desempenho, segurança e escalabilidade.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-lg border-0 zoom-effect">
+                <div class="overflow-hidden">
+                    <img src="https://cepepprofissionalizantes.com.br/wp-content/uploads/2022/09/top-img-manut-comp.jpg" 
+                         class="card-img-top img-fluid" 
+                         style="height: 200px; object-fit: cover;" 
+                         alt="Serviço 3">
+                </div>
+                <div class="card-body text-center">
+                    <h5 class="card-title fw-bold">Manutenção de Hardware e Software</h5>
+                    <p class="card-text">Garantimos o funcionamento otimizado dos seus equipamentos e sistemas com serviços especializados de manutenção de hardware e software.</p>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
+
 
 <!-- Rodapé -->
-<footer>
-    <p>&copy; 2025 SitesByCkistian | Todos os direitos reservados</p>
-    <div class="social-icons">
-        <a href="https://linkedin.com" target="_blank">🔗</a>
-        <a href="https://twitter.com" target="_blank">🐦</a>
-        <a href="https://facebook.com" target="_blank">📘</a>
+<footer class="bg-custom text-white py-4" style="background-color: rgb(34, 33, 33);">
+    <div class="container">
+      <div class="row">
+
+        <!-- Contato -->
+        <div class="col-md-4 mb-3 text-center row" target="_blank">
+          <h5 style="font-weight: bold;">Contato</h5>
+            <a href="https://wa.me/554591068514?text=Olá!%20Me%20interessei%20no%20seu%20trabalho!." target="_blank" class="text-white"><i class="fas fa-phone-alt "></i> (45) 99986-1237</a>
+            <a href="https://accounts.google.com/AccountChooser/signinchooser?service=mail&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&flowName=GlifWebSignIn&flowEntry=AccountChooser&ec=asw-gmail-globalnav-signin&ddm=1" target="_blank"  class="text-white"><i class="fas fa-envelope"></i> crisgkist@gmail.com</a>
+        </div>      
+
+        <!-- Redes Sociais -->
+        <div class="col-md-4 mb-3 text-center" target="_blank">
+          <h5 style="font-weight: bold;">Redes Sociais</h5>
+          <a href="https://www.facebook.com/Ckistianprogramandosolucoes" target="_blank"  class="text-white fs-3 me-3"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/Ckistianprogramandosolucoes/" target="_blank"  class="text-white fs-3 me-3"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/in/cristiankist/" target="_blank"  class="text-white fs-3 me-3"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+         
+        <!-- Sobre o Site -->
+        <div class="col-md-4 mb-3 text-center" target="_blank">
+          <h5 style="font-weight: bold;">Sobre o Site</h5>
+          <p>Site desenvolvido por Ckistian<br>Entre em contato e comece o seu!</p>
+          <a href="https://wa.me/554591068514?text=Olá!%20Gostaria%20de%20começar%20meu%20site!." target="_blank"  class="text-white"><i class="fas fa-phone-alt "></i> (45) 99986-1237</a>
+        </div>
+
+      </div>
+      <hr class="bg-light">
+      <div class="text-center">
+        <p>&copy; 2025 SitesByCkistian. Todos os direitos reservados.</p>
+      </div>
     </div>
-</footer>
+ </footer> 
 
-<script>
-    // Função do Carrossel
-    let currentSlide = 0;
-    const slides = document.querySelectorAll(".carousel-item");
-
-    function prevSlide() {
-        currentSlide = (currentSlide > 0) ? currentSlide - 1 : slides.length - 1;
-        updateCarousel();
-    }
-
-    function nextSlide() {
-        currentSlide = (currentSlide < slides.length - 1) ? currentSlide + 1 : 0;
-        updateCarousel();
-    }
-
-    function updateCarousel() {
-        const carousel = document.querySelector(".carousel");
-        carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
-    }
-    function toggleMenu() {
-        const menu = document.querySelector('nav ul');
-        menu.classList.toggle('active');
-    }
-
-</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
